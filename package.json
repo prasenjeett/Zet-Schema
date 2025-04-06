@@ -1,7 +1,7 @@
 {
   "name": "zetschema",
   "version": "1.0.0",
-  "description": "TypeScript-first schema validation library",
+  "description": "TypeScript-first schema validation library with zero dependencies",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,17 +9,30 @@
     "test": "jest",
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prasenjeett/zetschema.git"
   },
   "keywords": [
     "typescript",
     "validation",
     "schema",
     "types",
-    "zod"
+    "validator",
+    "type-safe"
   ],
   "author": "prasenjeett",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prasenjeett/zetschema/issues"
+  },
+  "homepage": "https://github.com/prasenjeett/zetschema#readme",
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
@@ -32,6 +45,8 @@
     "typescript": "^5.0.3"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ]
 }
