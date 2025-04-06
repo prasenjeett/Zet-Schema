@@ -4,7 +4,7 @@ import { ZetType } from './schemas/base';
 export type infer<T> = T extends ZetType<any, infer O> ? O : never;
 
 // Type assertion function
-export function assertType<T extends ZetType<any>>(schema: T, value: any): asserts value is infer<T> {
+export function assertType<T extends ZetType<any>>(schema: T, value: any){
     schema.parse(value);
 }
 
