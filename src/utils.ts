@@ -5,11 +5,11 @@ export type infer<T extends ZetType<any>> = T extends ZetType<any, infer O> ? O 
 export function assertType<T extends ZetType<any>>(schema: T, value: infer<T>): void {
     // This function is used only for type checking
     // It doesn't need to do anything at runtime
-}
+};
 
 export function createErrorMessage(message: string, path: (string | number)[] = []): string {
     return path.length > 0 ? `${path.join('.')}: ${message}` : message;
-}
+};
 
 export const isPromise = (value: unknown): value is Promise<unknown> => {
     return value instanceof Promise;
